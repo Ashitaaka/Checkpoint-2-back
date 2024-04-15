@@ -1,0 +1,6 @@
+entity: ContinentsEntity
+items:
+  continent1:
+    continentCode: "Europe"
+  continent2:
+    continentCode: "Africa"
