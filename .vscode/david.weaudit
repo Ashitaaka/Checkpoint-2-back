@@ -1,0 +1,229 @@
+{
+  "clientRemote": "",
+  "gitRemote": "",
+  "gitSha": "",
+  "treeEntries": [
+    {
+      "label": "Contexte",
+      "entryType": 0,
+      "author": "david",
+      "locations": [
+        {
+          "path": "src\\index.ts",
+          "startLine": 24,
+          "endLine": 26,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "Ton contexte n'est utilisé nulle part dans tes résolveurs, tu aurais donc tout simplement plus t'en passer ici",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    },
+    {
+      "label": "reflect",
+      "entryType": 0,
+      "author": "david",
+      "locations": [
+        {
+          "path": "src\\index.ts",
+          "startLine": 0,
+          "endLine": 0,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "Tu devrais importer reflect-metadata pour les décorateurs TypeORM et TypeGraphQL",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    },
+    {
+      "label": "Exception",
+      "entryType": 0,
+      "author": "david",
+      "locations": [
+        {
+          "path": "src\\services\\Countries.service.ts",
+          "startLine": 44,
+          "endLine": 46,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "J'aurais privilégier la levée d'erreur côté service, mais ça marche",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    },
+    {
+      "label": "Service",
+      "entryType": 0,
+      "author": "david",
+      "locations": [
+        {
+          "path": "src\\services\\Countries.service.ts",
+          "startLine": 33,
+          "endLine": 35,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "Pourquoi ne pas avoir exploité getContinentByCode que tu as créé dans ContinentService ? Tu as même été obligé de déclarer le repository de continent alors que tu pouvais t'en passer en passant par le service de Continent\n",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    },
+    {
+      "label": "Service 2",
+      "entryType": 0,
+      "author": "david",
+      "locations": [
+        {
+          "path": "src\\services\\Countries.service.ts",
+          "startLine": 37,
+          "endLine": 42,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "Ici, pareil, tu fais d'ailleurs appel à la même méthode (findOne) qui aurait pu venir du service Continent.\nCôté create, je te conseillerais de séparer create et save plutôt que de raccourcir ça comme ça, si demain tu veux faire des validations, ce ne sera pas simple ni clair comme ceci.",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    },
+    {
+      "label": "Bien!",
+      "entryType": 0,
+      "author": "david",
+      "locations": [
+        {
+          "path": "src\\fixtures\\Countries.yml",
+          "startLine": 0,
+          "endLine": 11,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "Bien d'avoir fait les fixtures!",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    },
+    {
+      "label": "Top",
+      "entryType": 0,
+      "author": "david",
+      "locations": [
+        {
+          "path": "src\\resolvers\\Countries.resolver.ts",
+          "startLine": 0,
+          "endLine": 23,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "Top\n",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    },
+    {
+      "label": "Typage",
+      "entryType": 0,
+      "author": "david",
+      "locations": [
+        {
+          "path": "src\\entities\\Continents.entity.ts",
+          "startLine": 7,
+          "endLine": 9,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "Il y a une incohérence entre le type ID (côté graphql) et id: number côté typescript.\nID est string de base, donc ça ne colle pas, soit tu fais id: number avec Int côté GraphQL, soit ID avec id: string",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    },
+    {
+      "label": "Cool",
+      "entryType": 0,
+      "author": "david",
+      "locations": [
+        {
+          "path": "src\\entities\\Continents.entity.ts",
+          "startLine": 15,
+          "endLine": 22,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "Cool d'avoir utilisé des transformateurs.\nEn revanche, les deux ne sont pas utiles si tu fais la même chose en sortie qu'en entrée.\nJ'entends par là que si tu as stocké, par le transformateur, la donné en majuscule, en récupération elle ne sera.",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    },
+    {
+      "label": "Enum",
+      "entryType": 0,
+      "author": "david",
+      "locations": [
+        {
+          "path": "src\\entities\\Continents.entity.ts",
+          "startLine": 24,
+          "endLine": 24,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "Tu aurais pu aller plus loin sur ce typage.\nTu aurais pu déclarer un énum, utiliser registerEnumType de TypeGraphQL : \nhttps://typegraphql.com/docs/enums.html\n\nEt utiliser ensuite le Record de TypeScript pour exploiter ce typage : \nenum FooKeys {\n  FOO = 'foo',\n  BAR = 'bar',\n}\n\n\ntype FooType = Record<FooKeys, string>;\n",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    }
+  ],
+  "auditedFiles": [],
+  "resolvedEntries": []
+}
